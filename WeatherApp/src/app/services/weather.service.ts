@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class WeatherService {
-  private apiKey = '371890d312eb9d6da3952be3995a8a33'; // Inserisci la tua chiave API
+  private apiKey = ''; // Inserisci la tua chiave API da https://openweathermap.org/api
   private apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
   private forecast5DayUrl = 'https://api.openweathermap.org/data/2.5/forecast';
   private geoApiUrl = 'https://api.openweathermap.org/geo/1.0/direct'; // API per i suggerimenti delle città
