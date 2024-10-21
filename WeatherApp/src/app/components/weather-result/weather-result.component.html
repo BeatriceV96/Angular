@@ -17,33 +17,25 @@
     <h3 class="text-2xl font-semibold text-teal-700">{{ getTranslatedWeather(weatherData.weather[0].description) }}</h3>
 
     <!-- Informazioni dettagliate sul meteo -->
-    <div class="row">
-      <div class="col">
-        <div class="p-4 border rounded-lg shadow-md">
-          <img src="../../../assets/temperatura.png" alt="Icona Temperatura" class="icon-size mb-2">
-          <p class="text-lg text-gray-600">Temperatura: {{ weatherData.main.temp }}°C</p>
-        </div>
+    <div class="weather-info-card">
+      <div class="weather-detail">
+        <img src="../../../assets/temperatura.png" alt="Temperatura" class="weather-icon">
+        <p>Temperatura: {{ weatherData.main.temp }}°C</p>
       </div>
 
-      <div class="col">
-        <div class="p-4 border rounded-lg shadow-md">
-          <img src="../../../assets/temperatura-percepita.png" alt="Icona Percepita" class="icon-size mb-2">
-          <p class="text-lg text-gray-600">Percepita: {{ weatherData.main.feels_like }}°C</p>
-        </div>
+      <div class="weather-detail">
+        <img src="../../../assets/temperatura-percepita.png" alt="Percepita" class="weather-icon">
+        <p>Percepita: {{ weatherData.main.feels_like }}°C</p>
       </div>
 
-      <div class="col">
-        <div class="p-4 border rounded-lg shadow-md">
-          <img src="../../../assets/vento.png" alt="Icona Vento" class="icon-size mb-2">
-          <p class="text-lg text-gray-600">Vento: {{ weatherData.wind.speed }} m/s</p>
-        </div>
+      <div class="weather-detail">
+        <img src="../../../assets/vento.png" alt="Vento" class="weather-icon">
+        <p>Vento: {{ weatherData.wind.speed }} m/s</p>
       </div>
 
-      <div class="col">
-        <div class="p-4 border rounded-lg shadow-md">
-          <img src="../../../assets/umidità.png" alt="Icona Umidità" class="icon-size mb-2">
-          <p class="text-lg text-gray-600">Umidità: {{ weatherData.main.humidity }}%</p>
-        </div>
+      <div class="weather-detail">
+        <img src="../../../assets/umidità.png" alt="Umidità" class="weather-icon">
+        <p>Umidità: {{ weatherData.main.humidity }}%</p>
       </div>
     </div>
 
@@ -67,6 +59,5 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
