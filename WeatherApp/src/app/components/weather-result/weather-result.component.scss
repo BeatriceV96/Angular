@@ -1,85 +1,153 @@
+/* Stile principale per la card meteo */
 .weather-card {
-  background-color: rgb(55 10 71 / 30%);
+  background-color: rgba(123, 104, 238, 0.3); /* Colore viola tenue */
   border-radius: 20px;
   text-align: center;
-  max-width: 900px;
+  max-width: 1200px; /* Aumentato da 900px a 1200px per contenere più elementi */
   padding: 20px;
   margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden; /* Contiene tutto il contenuto */
 }
 
+/* Contenitore delle informazioni meteo dettagliate */
 .weather-info-card {
-  background-color: rgba(255, 255, 255, 0.3); /* Sfondo bianco trasparente */
+  background-color: rgba(255, 255, 255, 0.3); /* Sfondo chiaro */
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Ombra */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Distribuisce gli elementi in modo uniforme */
   align-items: center;
   margin-top: 20px;
-  width: 100%;
-}
-
-.weather-detail {
-  text-align: center;
-  padding: 10px;
-}
-
-.weather-icon {
-  width: 50px;
-  height: 50px;
-}
-
-.row {
-  display: flex;
+  max-width: 100%; /* Assicura che il contenitore non sbordi */
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 20px; /* Aggiunge spazio tra gli elementi */
+  overflow: hidden; /* Impedisce che gli elementi escano dal contenitore */
 }
 
-.col {
-  flex: 1;
-  min-width: 200px;
-  margin: 10px;
-}
-
-.forecast-card {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  text-align: center;
-  margin: 10px;
-  padding: 10px;
-  min-height: 200px;
-}
-
-.icon-size {
+/* Stile per le icone meteo */
+.weather-icon {
   width: 40px;
   height: 40px;
-  margin-bottom: 10px;
+  margin-bottom: 15px; /* Aumenta lo spazio tra l'icona e il testo */
 }
 
-@media (min-width: 768px) {
-  .forecast-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
+/* Stile per ogni dettaglio meteo */
+.weather-detail {
+  display: flex;
+  flex-direction: column; /* Disposizione verticale */
+  align-items: center; /* Allinea gli elementi al centro orizzontalmente */
+  justify-content: space-between; /* Spazia gli elementi */
+  text-align: center;
+  padding: 10px;
+  flex: 1;
+  min-width: 180px; /* Imposta una larghezza minima */
+  max-width: 220px; /* Imposta una larghezza massima per evitare sbordamenti */
+  background-color: rgba(240, 248, 255, 0.5); /* Colore AliceBlue */
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Aggiunge ombra leggera */
+  margin: 0 10px;
+  transition: background-color 0.3s ease-in-out; /* Aggiunge transizione */
+  word-wrap: break-word; /* Evita che il testo esca dal contenitore */
+  overflow: hidden; /* Impedisce che il contenuto si estenda oltre la card */
 }
 
+/* Hover effect per ogni dettaglio meteo */
+.weather-detail:hover {
+  background-color: rgba(255, 255, 255, 0.7); /* Colore di sfondo più chiaro */
+}
+
+/* Spazio tra le voci e i valori per le previsioni */
+.weather-detail-item {
+  margin-top: 10px;
+  text-align: left; /* Allinea i dati delle previsioni a sinistra */
+}
+
+/* Stile per il testo delle etichette nelle previsioni */
+.label {
+  font-weight: bold;
+  font-size: 0.9rem; /* Riduce leggermente la dimensione del testo */
+  color: #1a1a1a; /* Colore più scuro per migliorare la leggibilità */
+  display: block;
+  margin-bottom: 5px; /* Aggiunge spazio tra il nome del dato e il valore */
+  white-space: nowrap; /* Impedisce la rottura del testo */
+  padding-bottom: 5px; /* Aggiunge stacco tra etichetta e valore */
+}
+
+/* Stile per i valori delle previsioni */
+.value {
+  font-size: 1.1rem; /* Mantiene il valore abbastanza leggibile */
+  color: #555;
+  display: block;
+  white-space: nowrap; /* Evita la rottura del testo */
+  padding-top: 5px; /* Stacco tra il nome del dato e il valore */
+}
+
+/* Stile per il layout delle previsioni meteo giornaliere */
 .forecast-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 colonne per riga */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Migliora la distribuzione delle card */
   gap: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Stile della card di previsione con centrazione dei contenuti */
 .forecast-card {
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
+  padding: 20px;
   text-align: center;
-  padding: 10px;
-  min-height: 200px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Aggiunge ombra leggera */
+  flex-direction: column;
+  justify-content: center; /* Allinea i contenuti verticalmente al centro */
+  align-items: center; /* Allinea i contenuti orizzontalmente al centro */
+  transition: transform 0.3s ease-in-out;
 }
 
+/* Hover effect per le forecast card */
+.forecast-card:hover {
+  transform: scale(1.05); /* Effetto di zoom su hover */
+}
+
+/* Stile per le icone nelle previsioni */
 .weather-icon {
   width: 60px;
   height: 60px;
   margin-bottom: 10px;
+}
+
+/* Responsive: allinea verticalmente i dettagli meteo su schermi piccoli */
+@media (max-width: 768px) {
+  .weather-info-card {
+    flex-direction: column; /* Disposizione verticale su dispositivi mobili */
+  }
+
+  .forecast-grid {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto; /* Permette lo scroll orizzontale per le previsioni */
+    gap: 10px;
+  }
+
+  .forecast-card {
+    flex: 0 0 auto;
+    min-width: 150px; /* Imposta una larghezza minima per ogni card */
+  }
+}
+
+/* Animazione di fade-in al caricamento delle card */
+.forecast-card {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

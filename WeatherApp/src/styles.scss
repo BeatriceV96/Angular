@@ -43,14 +43,6 @@ body, html {
   min-height: 100vh;  /* L'altezza minima sarà l'intero schermo */
 }
 
-.weather-card {
-  max-width: 100%;
-  border-radius: 20px;
-  background-color: rgb(55 10 71 / 30%);
-  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2), -10px -10px 30px rgba(255, 255, 255, 0.5);
-  margin-top: 20px;
-}
-
 @media (max-width: 600px) {
   .search-container {
     padding: 15px;

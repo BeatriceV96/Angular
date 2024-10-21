@@ -52,12 +52,26 @@
             <p class="text-lg font-bold">{{ forecast.dt * 1000 | date:'HH:mm' }}</p>
             <img [src]="forecast.weather[0]?.icon ? 'http://openweathermap.org/img/wn/' + forecast.weather[0].icon + '@2x.png' : 'path_to_fallback_icon.png'"
                  alt="Weather icon" class="weather-icon mb-2">
-            <p>Temperatura massima: {{ forecast.main.temp_max }}°C</p>
-            <p>Temperatura minima: {{ forecast.main.temp_min }}°C</p>
-            <p>Meteo: {{ getTranslatedWeather(forecast.weather[0]?.description) }}</p>
+
+            <!-- Dettagli meteo -->
+            <div class="weather-detail-item">
+              <span class="label">Temperatura massima:</span>
+              <span class="value">{{ forecast.main.temp_max }}°C</span>
+            </div>
+
+            <div class="weather-detail-item">
+              <span class="label">Temperatura minima:</span>
+              <span class="value">{{ forecast.main.temp_min }}°C</span>
+            </div>
+
+            <div class="weather-detail-item">
+              <span class="label">Meteo:</span>
+              <span class="value">{{ getTranslatedWeather(forecast.weather[0]?.description) }}</span>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>
