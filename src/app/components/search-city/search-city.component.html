@@ -1,0 +1,25 @@
+<div class="search-container p-5 text-center rounded-lg shadow-lg">
+  <!-- Input per il nome della città -->
+  <input
+    type="text"
+    [(ngModel)]="city"
+    (input)="onCityInput($event)"
+    placeholder="Inserisci una città"
+    class="form-control rounded-full shadow-md p-3 text-center">
+
+  <!-- Pulsante di ricerca -->
+  <button class="btn bg-blue-300 text-black rounded-full mt-3 shadow-lg hover:bg-blue-500 px-6 py-2"
+        (click)="searchWeather()">
+  Cerca
+</button>
+
+
+  <!-- Suggerimenti delle città -->
+  <ul *ngIf="citySuggestions.length > 0" class="suggestions-list mt-3">
+    <li *ngFor="let suggestion of citySuggestions"
+        (click)="selectCity(suggestion)"
+        class="suggestion-item cursor-pointer p-2 hover:bg-gray-200 rounded-lg">
+      {{ suggestion.name }}, {{ suggestion.country }}
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,72 @@
+<div class="weather-container">
+  <!-- Visualizzazione dei dati meteo attuali -->
+  <div *ngIf="weatherData" class="weather-card p-5 mx-auto text-center shadow-lg rounded-xl bg-gradient-to-r from-green-200 via-blue-200 to-purple-200 mt-5">
+
+    <!-- Nome città, regione e nazione -->
+    <h2 class="text-4xl font-bold text-gray-700">
+      {{ weatherData.name }}, {{ weatherData.sys.country }}
+    </h2>
+
+    <!-- Icona meteo -->
+    <div class="weather-icon-container">
+      <div class="weather-icon-background"></div>
+      <img *ngIf="weatherData.weather[0].icon" [src]="'http://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@2x.png'" alt="Weather icon" class="weather-icon">
+    </div>
+
+    <!-- Descrizione meteo tradotta -->
+    <h3 class="text-2xl font-semibold text-teal-700">{{ getTranslatedWeather(weatherData.weather[0].description) }}</h3>
+
+    <!-- Informazioni dettagliate sul meteo -->
+    <div class="row">
+      <div class="col">
+        <div class="p-4 border rounded-lg shadow-md">
+          <img src="../../../assets/temperatura.png" alt="Icona Temperatura" class="icon-size mb-2">
+          <p class="text-lg text-gray-600">Temperatura: {{ weatherData.main.temp }}°C</p>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="p-4 border rounded-lg shadow-md">
+          <img src="../../../assets/temperatura-percepita.png" alt="Icona Percepita" class="icon-size mb-2">
+          <p class="text-lg text-gray-600">Percepita: {{ weatherData.main.feels_like }}°C</p>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="p-4 border rounded-lg shadow-md">
+          <img src="../../../assets/vento.png" alt="Icona Vento" class="icon-size mb-2">
+          <p class="text-lg text-gray-600">Vento: {{ weatherData.wind.speed }} m/s</p>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="p-4 border rounded-lg shadow-md">
+          <img src="../../../assets/umidità.png" alt="Icona Umidità" class="icon-size mb-2">
+          <p class="text-lg text-gray-600">Umidità: {{ weatherData.main.humidity }}%</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Previsioni giornaliere per i prossimi 5 giorni -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <h4 class="text-lg font-bold">Previsioni per i prossimi 5 giorni</h4>
+      </div>
+
+      <div *ngFor="let group of groupForecastByDay()" class="col-12 mt-3">
+        <h5 class="text-xl font-bold">{{ group.date }}</h5>
+        <div class="forecast-grid">
+          <div *ngFor="let forecast of group.forecasts" class="forecast-card p-4 border rounded-lg shadow-md">
+            <p class="text-lg font-bold">{{ forecast.dt * 1000 | date:'HH:mm' }}</p>
+            <img [src]="forecast.weather[0]?.icon ? 'http://openweathermap.org/img/wn/' + forecast.weather[0].icon + '@2x.png' : 'path_to_fallback_icon.png'"
+                 alt="Weather icon" class="weather-icon mb-2">
+            <p>Temperatura massima: {{ forecast.main.temp_max }}°C</p>
+            <p>Temperatura minima: {{ forecast.main.temp_min }}°C</p>
+            <p>Meteo: {{ getTranslatedWeather(forecast.weather[0]?.description) }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.search-container {
+  background-color: rgba(67, 19, 83, 0.3);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Lista dei suggerimenti */
+.suggestions-list {
+  list-style: none; /* Rimuovi i punti elenco */
+  padding: 0;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.8); /* Sfondo bianco semi-trasparente */
+  border-radius: 15px; /* Bordi arrotondati */
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Aggiungi un'ombra leggera */
+  overflow: hidden; /* Nascondi elementi fuori dal contenitore */
+}
+
+/* Elementi della lista */
+.suggestion-item {
+  padding: 10px 15px; /* Spaziatura interna */
+  cursor: pointer;
+  font-size: 18px; /* Dimensione testo */
+  transition: background-color 0.3s ease; /* Transizione per l'effetto hover */
+}
+
+/* Hover sugli elementi della lista */
+.suggestion-item:hover {
+  background-color: rgba(0, 123, 255, 0.2); /* Cambia il colore di sfondo al passaggio del mouse */
+  font-weight: bold; /* Rendi il testo più visibile con il grassetto */
+}
+
+/* Selezione di una città */
+.suggestion-item:active {
+  background-color: rgba(0, 123, 255, 0.5); /* Colore più scuro al click */
+  color: white; /* Cambia il colore del testo */
+}

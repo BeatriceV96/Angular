@@ -1,1 +1,105 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+@import "bootstrap/dist/css/bootstrap.min.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f4f8; /* Sfondo generale della pagina */
+}
+
+/* Applichiamo l'immagine al contenitore */
+.container-bg {
+  background-image: url('../src/assets/sfondo1.webp'); /* Percorso corretto dell'immagine */
+  background-size: cover;  /* Copre tutto il contenitore */
+  background-position: center;  /* L'immagine è centrata */
+  background-repeat: no-repeat;  /* Non ripetere l'immagine */
+  background-attachment: fixed;  /* L'immagine resta fissa */
+  border-radius: 20px; /* Bordo arrotondato */
+  padding: 40px; /* Spazio interno del contenitore */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Aggiunta di ombra */
+  width: 100%; /* La larghezza sarà al 100% della pagina */
+  min-height: 90vh; /* Aggiungi un'altezza minima per espandere ancora di più verticalmente */
+  max-width: 1400px; /* Espandi ulteriormente la larghezza massima del contenitore */
+  margin: 0 auto; /* Centra il contenitore orizzontalmente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente il contenuto */
+}
+
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;  /* L'altezza minima sarà l'intero schermo */
+}
+
+.weather-card {
+  max-width: 100%;
+  border-radius: 20px;
+  background-color: rgb(55 10 71 / 30%);
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2), -10px -10px 30px rgba(255, 255, 255, 0.5);
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  .search-container {
+    padding: 15px;
+    width: 90%; /* Riduci la larghezza */
+    margin: 0 auto; /* Centra su schermi più piccoli */
+  }
+
+  input.form-control {
+    width: 100%; /* L'input occupa tutto lo spazio disponibile */
+    padding: 10px; /* Riduci il padding su mobile */
+    font-size: 16px;
+  }
+
+  button.btn {
+    width: 100%; /* Il pulsante occupa tutta la larghezza */
+    padding: 10px; /* Riduci il padding */
+    font-size: 16px;
+  }
+
+  .suggestion-item {
+    font-size: 16px; /* Riduci leggermente la dimensione del testo */
+    padding: 8px 10px; /* Spaziatura più contenuta */
+  }
+}
+
+
+@media (max-width: 600px) {
+  .forecast-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonne su mobile */
+    gap: 10px; /* Riduci lo spazio tra gli elementi */
+  }
+
+  .forecast-card {
+    padding: 10px;
+  }
+
+  .weather-icon {
+    width: 60px;
+    height: 60px; /* Riduci le icone */
+  }
+}
+
+
+@media (min-width: 601px) {
+  .grid {
+    flex-direction: row; /* Mantiene la disposizione orizzontale per schermi più grandi */
+  }
+
+  .p-4 {
+    flex: 1; /* Garantisce che gli elementi si distribuiscano uniformemente in orizzontale */
+  }
+}
